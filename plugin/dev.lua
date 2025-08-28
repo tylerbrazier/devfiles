@@ -13,6 +13,11 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
 	end
 })
 
+require('gitsigns').setup {
+	-- https://github.com/lewis6991/gitsigns.nvim/issues/1344
+	diff_opts = { linematch = 0 }
+}
+
 vim.keymap.set('n', 'gsb', ':Gitsigns blame<CR>')
 vim.keymap.set('n', 'gsq', ':Gitsigns setqflist all<CR>')
 vim.keymap.set('n', 'gsd', ':Gitsigns diffthis<CR>')
