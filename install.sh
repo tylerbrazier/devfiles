@@ -2,9 +2,9 @@
 
 pack_dir="$HOME/.config/nvim/pack/devfiles/start"
 plugin_urls='
-https://github.com/tylerbrazier/devfiles.git
-https://github.com/tylerbrazier/vim-forgit.git
-https://github.com/tylerbrazier/vim-marcos.git
+git@github.com:tylerbrazier/devfiles.git
+git@github.com:tylerbrazier/vim-forgit.git
+git@github.com:tylerbrazier/vim-marcos.git
 https://github.com/neovim/nvim-lspconfig.git
 https://github.com/lewis6991/gitsigns.nvim.git
 '
