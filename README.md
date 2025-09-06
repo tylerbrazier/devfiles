@@ -1,4 +1,5 @@
-# devfiles
+Supplement to [dotfiles](https://github.com/tylerbrazier/dotfiles) for devlopment
 
-Supplement to [dotfiles](https://github.com/tylerbrazier/dotfiles)
-for devlopment work
+__TODO__
+
+- add command/map to populate qf with each changed file in current repo
