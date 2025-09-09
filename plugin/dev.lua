@@ -14,8 +14,24 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
 })
 
 require('gitsigns').setup {
+	signs = {
+		add		= { text = '┃' },
+		change		= { text = '┃' },
+		changedelete	= { text = '┃' },
+		delete		= { text = '_' },
+		topdelete	= { text = '‾' },
+		untracked	= { text = '┆' },
+	},
+	signs_staged = {
+		add		= { text = '┃' },
+		change		= { text = '┃' },
+		changedelete	= { text = '┃' },
+		delete		= { text = '_' },
+		topdelete	= { text = '‾' },
+		untracked	= { text = '┆' },
+	},
 	-- https://github.com/lewis6991/gitsigns.nvim/issues/1344
-	diff_opts = { linematch = 0 }
+	diff_opts = { linematch = 0 },
 }
 
 vim.keymap.set('n', 'gsb', ':Gitsigns blame<CR>')
