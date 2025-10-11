@@ -1,18 +1,5 @@
 vim.lsp.enable('ts_ls')
 
-vim.diagnostic.config{
-	virtual_lines = { current_line = true }
-}
-
--- don't show diagnostics while I'm making changes
-vim.api.nvim_create_augroup('dev', { clear = true })
-vim.api.nvim_create_autocmd('BufModifiedSet', {
-	group = 'dev',
-	callback = function(ev)
-		vim.diagnostic.enable(not vim.bo.modified)
-	end
-})
-
 require('gitsigns').setup {
 	signs = {
 		add		= { text = '┃' },
