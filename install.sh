@@ -1,14 +1,19 @@
 #!/bin/sh
 
-pack_dir="$HOME/.config/nvim/pack/devfiles/start"
+this_dir="$(realpath "$(dirname "$0")")"
+nvim_dir="$HOME/.config/nvim"
+pack_dir="$nvim_dir/pack/devfiles/start"
+nvimrc="$nvim_dir/init.lua"
 plugin_urls='
-git@github.com:tylerbrazier/devfiles.git
 git@github.com:tylerbrazier/vim-forgit.git
 git@github.com:tylerbrazier/vim-marcos.git
 git@github.com:tylerbrazier/vim-flintstone.git
 https://github.com/neovim/nvim-lspconfig.git
 https://github.com/lewis6991/gitsigns.nvim.git
 '
+add_to_nvimrc="
+vim.cmd('source $this_dir/dev.lua')
+"
 add_to_shrc='
 . ~/.git-prompt.sh
 GIT_PS1_SHOWCOLORHINTS=1
@@ -43,6 +48,10 @@ echo "$plugin_urls" | xargs -t -L 1 git clone
 nvim --headless -u NORC -c 'helptags ALL' -c q
 
 npm install -g typescript typescript-language-server
+
+mkdir -p "$nvim_dir"
+echo "$add_to_nvimrc" >> "$nvimrc"
+${EDITOR:-vi} "$nvimrc"
 
 curl -o "$HOME/.git-prompt.sh" \
 	https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-prompt.sh
